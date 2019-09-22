@@ -1,6 +1,6 @@
 #include<stdio.h>
 
-void Decrpyt(char *s);
+void Decrpyt(char *s,int key);
 
 void str_rev(char *p,char *q);
 
@@ -8,11 +8,11 @@ int main(){
 	char s[200];
 	printf("enter the String : ");
 	gets(s);
-/*	int key;
+	int key;
 	printf("enter the Key : ");
-	scanf("%d",key);  */
+	scanf("%d",key);  
 	puts(s);
-	Decrpyt(s);
+	Decrpyt(s,key);
 	
 	puts(s);
 }
@@ -24,12 +24,12 @@ void srev(char *p,char *q){
 	*q = ch;
 }
 
-void Decrpyt(char *s){
+void Decrpyt(char *s,int key){
 	int i,j=0;
 	for(i=0;s[i];i++){
 		if((s[i]>='a'&&s[i]<='z')||(s[i]>='A'&&s[i]<='Z')){
 			j++;
-			if(j%4==0){
+			if(j%key==0){
 				if(*(s+i+1)=='\0')
 					goto label;
 				if(*(s+i)==' '){
